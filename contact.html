@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Jarspok Schools</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+    <!-- MAIN NAVIGATION CONTAINER -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Jarspok Logo" class="logo-img">
+            <span>JARSPOK</span>
+        </div>
+        
+        <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="school.html">Our School</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTACT HERO BANNER -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1>Get In Touch</h1>
+            <p>Have questions? We would love to hear from you. Reach out to us today.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT CONTENT SECTION -->
+    <main class="container scroll-fade-in">
+        <div class="grid-two-columns" style="align-items: start;">
+            
+            <!-- Left Side: Transferred Contact Details -->
+            <div class="contact-info-box">
+                <span class="section-tag">Direct Lines</span>
+                <h2 class="section-title">Our Information</h2>
+                <p style="margin-bottom: 30px; color: #4b5563;">
+                    Please feel free to connect with our administrative desk during operating hours for admissions or general inquiries.
+                </p>
+                
+                <div class="info-item">
+                    <span class="info-icon">📞</span>
+                    <div>
+                        <h4>Phone Number</h4>
+                        <p>+234 813 567 7879</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">✉️</span>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p>jarspokinternationalschools@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">🕒</span>
+                    <div>
+                        <h4>School Hours</h4>
+                        <p>Monday - Friday: 07:00 AM - 07:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Interactive Message Form -->
+<div class="contact-form-box">
+    <h3 style="color: #1e1b4b; margin-bottom: 20px; font-size: 22px;">Send Us a Message</h3>
+    
+    <!-- Changed form class/action to a single unique ID matching our JavaScript handler -->
+    <form id="contact-form" class="main-form">
+        <div class="form-group">
+            <label for="contact-name">Your Name</label>
+            <!-- Updated id to contact-name -->
+            <input type="text" id="contact-name" name="name" required placeholder="John Doe">
+        </div>
+        
+        <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <!-- Updated id to contact-email -->
+            <input type="email" id="contact-email" name="email" required placeholder="johndoe@gmail.com">
+        </div>
+
+        <div class="form-group">
+            <label for="contact-message">Your Message</label>
+            <!-- Updated id to contact-message -->
+            <textarea id="contact-message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Message</button>
+    </form>
+</div>
+
+    </main>
+
+           <!-- GOOGLE MAP EMBED SECTION (UPDATED FOR FULL WIDTH) -->
+    <section class="map-section scroll-fade-in">
+        <!-- We removed the 'container' class from this div to allow full stretching -->
+        <div class="map-full-wrapper">
+            <span class="section-tag" style="display: block; text-align: center; margin-top: 20px;">Our Location</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">Find Us on the Map</h2>
+            
+            <div class="map-responsive-box">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.3573280815795!2d7.0117923!3d4.879680399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069d212aab416df%3A0xbf5bf47b550fc4b5!2sJarspok%20Montessori%20lnternational%20School!5e0!3m2!1sen!2sng!4v1782627106260!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                    height="450" 
+                    style="border:0; display: block;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Jarspok Schools. All rights reserved.</p>
+    </footer>
+    
+       <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">&uparrow;</button>
+    <script src="script.js"></script>
+</body>
+</html>

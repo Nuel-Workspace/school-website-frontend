@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Jarspok International School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+    <!-- MAIN NAVIGATION CONTAINER -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Jarspok Logo" class="logo-img">
+            <span>JARSPOK</span>
+        </div>
+        
+        <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="school.html">Our School</a></li>
+            <li><a href="admissions.html" class="active">Admissions</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- ADMISSIONS HERO BANNER (Make sure hero-bg.jpg is saved in your folder) -->
+    <section class="admissions-hero">
+        <div class="admissions-hero-content">
+            <h1>Join Jarspok International</h1>
+            <p>Enroll your child in a safe, tech-forward learning ecosystem today.</p>
+        </div>
+    </section>
+
+    <!-- GUIDELINES SECTION WITH SPLIT PICTURE -->
+    <main class="container scroll-fade-in">
+        <div class="grid-two-columns" style="align-items: center;">
+            <div>
+                <span class="section-tag">Enrollment Guidelines</span>
+                <h2 class="section-title">Admission Process Overview</h2>
+                <p>
+                    We welcome applications from families who seek a rigorous, values-based curriculum anchored in computational learning and modern logic frameworks. 
+                </p>
+                <p style="margin-top: 15px;">
+                    Our admissions track is designed to evaluate core baseline developmental skills rather than strict academic testing, ensuring a balanced, supportive integration process.
+                </p>
+            </div>
+            
+            <!-- Side Image to break the text-heavy feeling -->
+            <div class="admissions-side-media">
+                <img src="Nursery pic.png" alt="Smiling student at desk" class="admissions-media" loading="lazy">
+            </div>
+        </div>
+    </main>
+
+    <!-- DOCUMENTATION REQUIREMENTS WITH ACCENT BANNER IMAGE -->
+    <section class="requirements-section scroll-fade-in">
+        <div class="container grid-two-columns" style="align-items: center;">
+            
+            <!-- Left Column Image Box -->
+            <div class="admissions-side-media">
+                <img src="Nursery pic 2.png" alt="Student registration and books" class="admissions-media" loading="lazy">
+            </div>
+
+            <!-- Right Column Text Box -->
+            <div class="requirements-box">
+                <h3>Required Documentation</h3>
+                <ul class="req-list">
+                    <li>📝 Completed Registration Form</li>
+                    <li>👶 Original Child Birth Certificate copy</li>
+                    <li>📸 Two recent passport photographs</li>
+                    <li>📊 Previous school academic report cards (if applicable)</li>
+                    <li>💉 Up-to-date child immunization records</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- THE STEP-BY-STEP ADMISSIONS TRACK TIMELINE -->
+    <section class="timeline-section scroll-fade-in">
+        <div class="container">
+            <span class="section-tag" style="display: block; text-align: center;">The Path to Entry</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">3 Simple Steps to Register</h2>
+            
+            <div class="grid-three-columns">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3>Obtain Application Forms</h3>
+                    <p>Visit our administrative office or request your entry booklet via our direct lines to fill in baseline records.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3>Interactive Assessment</h3>
+                    <p>A friendly, non-stressful interaction session is arranged with educators to track assimilation curves.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3>Securing Placement</h3>
+                    <p>Upon verification check, an acceptance package is issued alongside uniform details and school files.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS LIFE GALLERY BANNER GRID -->
+    <section class="admissions-gallery-section scroll-fade-in">
+        <div class="container" style="padding-top: 0;">
+            <span class="section-tag" style="display: block; text-align: center;">Campus Environment</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 35px;">Life at Jarspok International</h2>
+            
+            <div class="admissions-gallery-grid">
+                <div class="gallery-item-box"><img src="Ict lab.png" alt="Students in ICT lab" loading="lazy"></div>
+                <div class="gallery-item-box"><img src="Playground pic.png" alt="Children laughing outdoors" loading="lazy"></div>
+                <div class="gallery-item-box"><img src="Kiddies club 3.png" alt="Creative writing workshop" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Jarspok International School. All rights reserved.</p>
+    </footer>
+
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">&uparrow;</button>
+    <script src="script.js"></script>
+</body>
+</html>

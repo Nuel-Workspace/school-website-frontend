@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our School - Jarspok International School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+    <!-- MAIN NAVIGATION CONTAINER -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Jarspok Logo" class="logo-img">
+            <span>JARSPOK</span>
+        </div>
+        
+        <!-- Hamburger Action Button (Visible on mobile viewports only) -->
+        <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Navigation Menu Links Container -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            
+            <!-- Dropdown Menu Item -->
+            <li class="dropdown-parent">
+                <a href="#" class="dropdown-trigger">Our School <span class="arrow-indicator">▼</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="school.html#creche">Creche Section</a></li>
+                    <li><a href="school.html#nursery">Nursery Section</a></li>
+                    <li><a href="school.html#primary">Primary Section</a></li>
+                    <li><a href="school.html#secondary">Secondary Section</a></li>
+                    <li><a href="school.html#faculty">Our Staff</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- OUR SCHOOL HERO BANNER -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Our Academic Structure</h1>
+            <p>Explore our specialized developmental stages tailored for modern early education tracks.</p>
+        </div>
+    </section>
+
+    <!-- ALTERNATING SCHOOL LEVELS (CRECHE, NURSERY, PRIMARY) -->
+    <section class="school-levels-wrapper">
+        
+        <!-- SECTION 1: CRECHE (Image on Left) -->
+        <div id="creche" class="level-row container scroll-fade-in">
+            <div class="level-image-box">
+                <img src="Nursery pic.png" alt="Jarspok Creche Section" class="level-img" loading="lazy">
+            </div>
+            <div class="level-text-box">
+                <span class="level-badge purple-tag">Ages 0 - 2</span>
+                <h2>The Creche Section</h2>
+                <p>
+                    Our creche is a warm, ultra-safe, and highly hygienic environment designed to simulate a home away from home. We focus closely on early sensory motor tracking, emotional comfort, and baseline speech development under continuous caregiver attention.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: NURSERY (Image on Right - Swapped) -->
+        <div id="nursery" class="level-row container swap-columns scroll-fade-in">
+            <div class="level-text-box">
+                <span class="level-badge orange-tag">Ages 2 - 5</span>
+                <h2>The Nursery Section</h2>
+                <p>
+                    In our nursery classes, early childhood development blends natively with structured play. We introduce baseline numbers, handwriting skills, phonic recognition, and computational thinking apps, igniting natural problem-solving traits early.
+                </p>
+            </div>
+            <div class="level-image-box">
+                <img src="Nursery pic 2.png" alt="Jarspok Nursery Section" class="level-img" loading="lazy">
+            </div>
+        </div>
+
+        <!-- SECTION 3: PRIMARY (Image on Left) -->
+        <div id="primary" class="level-row container scroll-fade-in">
+            <div class="level-image-box">
+                <img src="Primary Pic.png" alt="Jarspok Primary Section" class="level-img" loading="lazy">
+            </div>
+            <div class="level-text-box">
+                <span class="level-badge blue-tag">Ages 5 - 11</span>
+                <h2>The Primary Section</h2>
+                <p>
+                    Our primary branch delivers a rigorous values-based academic framework. Here, students dive deep into core STEM subjects, interactive mathematics, creative logic projects, and direct computer coding scripts, preparing them to stand out as global tech-savvy leaders.
+                </p>
+            </div>
+        </div>
+
+                <!-- SECTION 4: SECONDARY (Image on Right - Swapped) -->
+        <div id="secondary" class="level-row container swap-columns scroll-fade-in">
+            <div class="level-text-box">
+                <span class="level-badge teal-tag">Ages 11 - 16</span>
+                <h2>The Secondary Section</h2>
+                <p>
+                    Our secondary school division provides a highly competitive academic workspace. We combine advanced STEM syllabuses with rigorous creative reasoning, research assignments, and professional code development environments, ensuring students graduate ready to dominate globally.
+                </p>
+            </div>
+            <div class="level-image-box">
+                <img src="Secondary pic.png" alt="Jarspok Secondary Section" class="level-img" loading="lazy">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- STAFF FACULTY PROFILE GRID -->
+    <section id="faculty" class="faculty-section scroll-fade-in">
+        <div class="container" style="padding-top: 0;">
+            <span class="section-tag" style="display: block; text-align: center;"><h2>Faculty Members</h2></span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">Meet Our Educators</h2>
+            
+            <div class="faculty-grid">
+                <!-- Teacher Card 1 -->
+                <div class="faculty-card">
+                    <div class="faculty-img-box">
+                        <img src="Principal.jpg" alt="Head Teacher" class="faculty-img" loading="lazy">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Mr. Christopher Okafor</h3>
+                        <p class="role">Principal</p>
+                        <p class="bio">An exemplary leader who harmonizes strict discipline, punctuality, and high academic standards with deep moral values.</p>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 2 -->
+                <div class="faculty-card">
+                    <div class="faculty-img-box">
+                        <img src="Vice principal.jpg" alt="Senior Educator" class="faculty-img" loading="lazy">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Mrs Hannah Akuma</h3>
+                        <p class="role">Vice Principal</p>
+                        <p class="bio">A modest yet outstanding leader whose dedication to values, morals, and strict discipline inspires academic excellence and true decency.</p>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 3 -->
+                <div class="faculty-card">
+                    <div class="faculty-img-box">
+                        <img src="Primary HeadTeacher.jpg" alt="Creative Instructor" class="faculty-img" loading="lazy">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Mrs Cyril Edna</h3>
+                        <p class="role">Primary Head-Teacher</p>
+                        <p class="bio">A modest and disciplined head teacher who anchors primary education in strong morals while inspiring students to stand out academically.</p>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 4 -->
+                <div class="faculty-card">
+                    <div class="faculty-img-box">
+                        <img src="Nursery Co-ordinator.jpg" alt="Technical Coach" class="faculty-img" loading="lazy">
+                    </div>
+                    <div class="faculty-info">
+                        <h3>Mrs. Charles Difference</h3>
+                        <p class="role">Nursery school coordinator</p>
+                        <p class="bio">A nurturing coordinator who gently instills early values and discipline, laying a beautiful foundation for lifelong academic success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Jarspok International School. All rights reserved.</p>
+    </footer>
+
+     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">&uparrow;</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1564 @@
+/* ==========================================================================
+   Base Reset & Global Styles
+   ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f9fafb; 
+    color: #374151; 
+    line-height: 1.6; 
+}
+
+/* ==========================================================================
+   COMPLETE PRESETS & FIXED NAVBAR (RE-DESIGNED)
+   ========================================================================== */
+.navbar { 
+    background-color: #ffffff; 
+    padding: 15px 5%; /* Fluid edge breathing room */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 4px 20px rgba(30, 27, 75, 0.04); /* Elegant modern shadow */
+    position: sticky; 
+    top: 0; 
+    z-index: 9999; 
+    width: 100%;
+}
+
+.logo { 
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+    font-size: 22px; 
+    font-weight: 900; 
+    color: #1e1b4b; /* Royal Indigo */
+    letter-spacing: 1px; 
+    cursor: pointer;
+}
+
+.logo-img {
+    height: 42px; 
+    width: auto;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   DESKTOP VIEW NAVIGATION LINKS (PC MODE)
+   ========================================================================== */
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    align-items: center;
+    gap: 35px; /* Perfect spacing between items */
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links li a { 
+    text-decoration: none; 
+    color: #4b5563; /* Slate Gray text */
+    font-weight: 600; 
+    font-size: 14.5px;
+    padding: 8px 0;
+    transition: color 0.25s ease; 
+}
+
+/* Hover highlights and active link markers */
+.nav-links li a:hover, 
+.nav-links li a.active { 
+    color: #1b5f2f; /* Premium school blue accent */
+}
+
+.arrow-indicator {
+    font-size: 8px;
+    margin-left: 3px;
+    vertical-align: middle;
+    color: #9ca3af;
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================================================
+   PC VIEW NESTED DROPDOWN BOX
+   ========================================================================== */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%) translateY(15px); 
+    background-color: #ffffff;
+    min-width: 200px;
+    list-style: none;
+    padding: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 12px 30px rgba(30, 27, 75, 0.1); 
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.dropdown-menu li a {
+    font-size: 13.5px !important;
+    color: #374151 !important;
+    padding: 10px 24px !important;
+    font-weight: 500 !important;
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f8fafc;
+    color: #9be546 !important; 
+    padding-left: 30px !important; /* Premium slide-in movement */
+}
+
+/* Trigger reveal animations on hover */
+.dropdown-parent:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(8px); 
+}
+
+.dropdown-parent:hover .arrow-indicator {
+    transform: rotate(180deg);
+    color: #1b5f2f;
+}
+
+.hamburger {
+    display: none; /* Keep hidden on wide monitors */
+}
+
+/* ==========================================================================
+   MOBILE VIEW OPTIMIZATION RESPONSIVE FIX (UNDER 768px WIDTH)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    /* Turn menu icon into clean lines */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22px;
+        height: 16px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 100000; /* Stays over the sliding panel */
+    }
+
+    .hamburger .bar {
+        width: 100%;
+        height: 2.5px;
+        background-color: #1e1b4b;
+        border-radius: 4px;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* Cross animation for 'X' button close action */
+    .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Transform menu list into a luxury mobile panel from the right */
+    .nav-links { 
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -80%; /* Safely tucked away by default */
+        width: 75%;  /* Takes up 75% screen space leaving 25% background */
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -10px 0 40px rgba(30, 27, 75, 0.15);
+        padding: 100px 30px 40px 30px;
+        gap: 15px;
+        align-items: flex-start;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 99999;
+    }
+
+    .nav-links.open {
+        transform: translateX(-107%); /* Slides the drawer out cleanly */
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid #f1f5f9; /* Soft separation rules for links */
+        width: 100%;
+    }
+
+    /* Restructuring sub-dropdown elements for tiny screen grids */
+    .dropdown-menu {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 5px 0 5px 15px !important;
+        background-color: #f8fafc !important;
+        display: none; /* Stays hidden inside mobile tray until hovered */
+        opacity: 1 !important;
+        visibility: visible !important;
+        border-radius: 6px;
+    }
+
+    .dropdown-menu li a {
+        border-bottom: none !important;
+        padding: 8px 15px !important;
+    }
+    
+    .dropdown-parent:hover .dropdown-menu {
+        display: block !important;
+    }
+}
+
+.logo { 
+    font-size: 24px; 
+    font-weight: 900; 
+    color: #1e1b4b; 
+    letter-spacing: 1px; 
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: #1b5f2f; 
+    font-weight: 600; 
+    transition: 0.3s; 
+}
+
+.nav-links a:hover, .nav-links a.active { 
+    color: #9be546; 
+}
+
+/* ==========================================================================
+   PREMIUM ANIMATED HERO SECTION (HALLEL STYLE UPGRADE)
+   ========================================================================== */
+.hero {
+    position: relative; 
+    width: 100%;
+    height: 70vh; /* Slightly taller for breathing room */
+    overflow: hidden;
+    background-color: #1e1b4b; /* Matches your Royal Indigo brand core */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* THE SLIDESHOW IMAGES WITH ZOOM EFFECT */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    opacity: 0;
+    /* This adds a continuous slow magnification growth scale */
+    transform: scale(1);
+    transition: opacity 1.8s ease-in-out, transform 6s linear; 
+    z-index: 1; 
+}
+
+/* WHEN ACTIVE: Image simultaneously fades in and slowly expands */
+.slide.active {
+    opacity: 1;
+    transform: scale(1.08); /* Cinematic Ken Burns zoom effect */
+    z-index: 2; 
+}
+
+/* THE COLOR-SYNC OVERLAY MASK
+   Uses your premium school green (#1b5f2f) and indigo brand colors 
+   to seamlessly map the images together dynamically! */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(30, 27, 75, 0.75) 0%,   /* Indigo branding */
+        rgba(27, 95, 47, 0.45) 100%   /* Translucent deep green accent */
+    );
+    z-index: 3; 
+    pointer-events: none;
+}
+
+/* HERO CONTENT CONTAINER */
+.hero-content { 
+    max-width: 850px; 
+    width: 90%;
+    position: relative;
+    z-index: 5; /* Floors above the tinted shield layer */
+    text-align: center;
+}
+
+/* TYPOGRAPHY SYNCHRONIZATION */
+.hero-tagline { 
+    color: #9be546; /* Bright neon lime-green highlights */
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
+    font-size: 13px; 
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.hero h1 { 
+    font-size: 48px; 
+    margin: 15px 0; 
+    font-weight: 900; 
+    color: #ffffff;
+    line-height: 1.2;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+}
+
+/* Colorful gradient emphasis highlight text */
+.accent-text {
+    color: #9be546;
+}
+
+.hero p { 
+    font-size: 19px; 
+    color: #f1f5f9; 
+    font-weight: 500;
+    margin-bottom: 35px; 
+    letter-spacing: 1px;
+}
+
+/* ELEVATED MODERN CTA BUTTON STYLE */
+.btn-main {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: #1b5f2f;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(27, 95, 47, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-main:hover {
+    background-color: #9be546;
+    color: #1e1b4b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(155, 229, 70, 0.4);
+}
+
+/* ==========================================================================
+   Layout Sections
+   ========================================================================== */
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 60px 20px; 
+}
+
+.grid-two-columns { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px; 
+    align-items: center; 
+}
+
+.section-tag { 
+    color: #1b5f2f; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    font-size: 12px; 
+}
+
+.section-title { 
+    font-size: 20px; 
+    color: #111827; 
+    margin: 10px 0 20px 0; 
+}
+
+.badge-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+}
+
+.badge { 
+    background-color: white; 
+    padding: 20px; 
+    text-align: center; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02); 
+    border-top: 4px solid #1b5f2f; 
+    font-weight: 600; 
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(30, 27, 75, 0.08);
+}
+
+.badge-alt {
+    border-top: 4px solid #f2c14e; /* Butter color accent */
+}
+
+.journey-section { 
+    background-color: #eef2ff; 
+    padding: 60px 20px; 
+    text-align: center; 
+}
+
+.grid-four-columns { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 20px; 
+    max-width: 1200px; 
+    margin: 40px auto 0 auto; 
+}
+
+.journey-card { 
+    background: white; 
+    padding: 30px 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02); 
+    transition: all 0.3s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(30, 27, 75, 0.08);
+}
+
+.journey-num { 
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #1b5f2f; 
+    margin-bottom: 10px; 
+}
+
+.journey-card p { 
+    color: #6b7280; 
+    font-size: 14px; 
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer { 
+    background-color: #111827; 
+    color: #9ca3af; 
+    text-align: center; 
+    padding: 40px 20px; 
+    font-size: 14px; 
+}
+
+/* ==========================================================================
+   Mobile Optimization
+   ========================================================================== */
+@media (max-width: 768px) {
+    .top-bar { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 5px; 
+    }
+    .grid-two-columns { 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+    }
+    .hero h1 { 
+        font-size: 32px; 
+    }
+
+    /* Reveal Hamburger Structure */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1001; 
+    }
+    .hamburger .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #1e1b4b;
+        border-radius: 2px;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* Hamburger transformation logic */
+    .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Transform menu list into custom sidebar tray */
+    .nav-links { 
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -75%; 
+        width: 70%;  
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        padding: 100px 30px 40px 40px;
+        gap: 25px;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 1000;
+    }
+
+    /* Translate trigger condition */
+    .nav-links.open {
+        transform: translateX(-107%);
+    }
+    .nav-links li a {
+        font-size: 18px;
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid #f3f4f6; 
+    }
+}
+.logo { 
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Puts a neat space between your logo image and text */
+    font-size: 24px; 
+    font-weight: 900; 
+    color: #1e1b4b; 
+    letter-spacing: 1px; 
+}
+
+/* Control the dimensions of your logo image so it doesn't break the layout */
+.logo-img {
+    height: 40px; 
+    width: auto;
+    object-fit: contain;
+}
+/* Add to your CSS file */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger effect for multiple items */
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.3s; }
+.fade-in:nth-child(3) { animation-delay: 0.5s; }
+
+/* ==========================================================================
+   About Us Page Custom Layout Rules
+   ========================================================================== */
+.about-hero {
+    background: linear-gradient(rgba(117, 115, 126, 0.85), rgba(30, 27, 75, 0.85)), url('heropic.jpg') center/cover no-repeat;
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.about-hero-content h1 {
+    font-size: 40px;
+    font-weight: 800;
+}
+.about-hero-content p {
+    color: #cbd5e1;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.about-img-box {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.responsive-about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.values-section {
+    background-color: #ffffff;
+    padding: 60px 0;
+    border-top: 1px solid #f3f4f6;
+}
+.grid-three-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.value-card {
+    background: #f9fafb;
+    padding: 40px 25px;
+    border-radius: 8px;
+    text-align: center;
+    border-bottom: 4px solid #e2e8f0;
+    transition: 0.3s ease;
+}
+.value-card:hover {
+    border-color: #1b5f2f;
+    transform: translateY(-5px);
+}
+.value-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+.value-card h3 {
+    font-size: 20px;
+    color: #1e1b4b;
+    margin-bottom: 10px;
+}
+.value-card p {
+    font-size: 14px;
+    color: #6b7280;
+}
+/* ==========================================================================
+   Contact Page Layout Styles
+   ========================================================================== */
+.contact-hero {
+    background: linear-gradient(rgba(117, 115, 126, 0.85), rgba(30, 27, 75, 0.85)), url('heropic.jpg') center/cover no-repeat;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.contact-hero-content h1 {
+    font-size: 38px;
+    font-weight: 800;
+}
+.contact-hero-content p {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin-top: 10px;
+}
+.contact-info-box {
+    padding-right: 20px;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border-left: 4px solid #1b5f2f;
+}
+.info-icon {
+    font-size: 24px;
+}
+.info-item h4 {
+    font-size: 15px;
+    color: #1e1b4b;
+    margin-bottom: 2px;
+}
+.info-item p {
+    font-size: 14px;
+    color: #4b5563;
+}
+.contact-form-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #1b5f2f;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+.btn-submit {
+    background-color: #1b5f2f;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-submit:hover {
+    background-color: #2cbe4c;
+}
+
+/* ==========================================================================
+   Google Map Embed Component Layout
+   ========================================================================== */
+.map-section {
+    background-color: #f9fafb;
+    padding-bottom: 40px;
+}
+
+.map-responsive-box {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    line-height: 0; /* Clears tiny alignment gaps below the iframe container element */
+}
+
+/* Adjust map view dimensions elegantly on tiny device grids */
+@media (max-width: 768px) {
+    .map-responsive-box iframe {
+        height: 320px !important;
+    }
+}
+
+/* ==========================================================================
+   Google Map Embed Component Layout (Full Width Fix)
+   ========================================================================== */
+.map-section {
+    background-color: #f9fafb;
+    width: 100%;
+    padding: 40px 0 0 0; /* Left and right padding are set to 0 */
+    margin: 0;
+}
+
+.map-full-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.map-responsive-box {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 0; 
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.map-responsive-box iframe {
+    width: 100% !important;
+    display: block;
+}
+
+/* Adjust map view dimensions elegantly on mobile devices */
+@media (max-width: 768px) {
+    .map-responsive-box iframe {
+        height: 320px !important;
+    }
+}
+/* ==========================================================================
+   Value Proposition Section Layout (2x2 Grid)
+   ========================================================================== */
+.value-prop-section {
+    background-color: #ffffff;
+    padding: 80px 0;
+    border-top: 1px solid #f1f5f9;
+}
+
+.value-prop-intro {
+    padding-right: 20px;
+}
+
+.value-prop-accent-box {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8fafc;
+    border-left: 4px solid #1b5f2f;
+    border-radius: 0 8px 8px 0;
+}
+
+.value-prop-accent-box strong {
+    display: block;
+    color: #1e1b4b;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.value-prop-accent-box p {
+    font-size: 13.5px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.value-prop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates a clean 2-column layout width */
+    gap: 25px;
+}
+
+.prop-card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.prop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(30, 27, 75, 0.06);
+    border-color: #1b5f2f;
+}
+
+.prop-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+/* Custom soft branding accents for item categories */
+.circle-purple { background-color: #f5f3ff; color: #6d28d9; }
+.circle-indigo { background-color: #eef2ff; color: #4338ca; }
+.circle-blue { background-color: #eff6ff; color: #1d4ed8; }
+.circle-teal { background-color: #f0fdfa; color: #0f766e; }
+
+.prop-card h3 {
+    font-size: 17px;
+    color: #1e1b4b;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.prop-card p {
+    font-size: 13.5px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Responsive breakdowns for medium and tiny layout viewports */
+@media (max-width: 992px) {
+    .value-prop-grid {
+        grid-template-columns: 1fr; /* Shifts the 2x2 grid to a 1-column list on tablets */
+    }
+}
+
+/* ==========================================================================
+   High-Impact Scroll Fade-In Animation Rules (Snappier & Stronger Entry)
+   ========================================================================== */
+/* The hidden starting point state */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(60px); /* Doubled the distance so it leaps up aggressively */
+    /* Snappy cubic-bezier curve simulates a professional spring easing motion */
+    transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: opacity, transform;
+}
+
+/* The final active state triggered by your script.js */
+.scroll-fade-in.appear {
+    opacity: 1;
+    transform: translateY(0); /* Snaps aggressively up into position */
+}
+
+/* ==========================================================================
+   Dedicated Homepage Vision Section Styles
+   ========================================================================== */
+.vision-section-wrapper {
+    background-color: #ffffff;
+    padding: 60px 0;
+    border-top: 1px solid #f1f5f9;
+}
+
+.vision-text-side {
+    padding-right: 15px;
+}
+
+.vision-image-side {
+    width: 100%;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.vision-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents stretching and crops cleanly inside the box */
+    display: block;
+}
+
+/* Responsive collapse rule for smaller viewports */
+@media (max-width: 768px) {
+    .vision-section-wrapper .grid-two-columns {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .vision-image-side {
+        height: 280px; /* Reduces image height slightly on phone displays */
+    }
+}
+/* ==========================================================================
+   Admissions Page Custom Styles Layout (With Picture Modules)
+   ========================================================================== */
+.admissions-hero {
+    background: linear-gradient(rgba(117, 115, 126, 0.85), rgba(30, 27, 75, 0.85)), url('heropic.jpg') center/cover no-repeat;
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.admissions-hero-content h1 {
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.admissions-hero-content p {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* Fluid responsive container for the section images */
+.admissions-side-media {
+    width: 100%;
+    height: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    border: 1px solid #e2e8f0;
+}
+
+.admissions-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.requirements-section {
+    background-color: #ffffff;
+    padding: 60px 0;
+    border-top: 1px solid #f1f5f9;
+}
+
+.requirements-box {
+    background: #f8fafc;
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #1b5f2f; /* Distinctive Orange side accent marker */
+}
+
+.requirements-box h3 {
+    color: #1e1b4b;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.req-list {
+    list-style: none;
+}
+
+.req-list li {
+    font-size: 14.5px;
+    color: #4b5563;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.timeline-section {
+    padding: 80px 0;
+    background-color: #f8fafc;
+}
+
+.step-card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.step-num {
+    font-size: 55px;
+    font-weight: 900;
+    color: #f1f5f9;
+    position: absolute;
+    right: 15px;
+    top: -5px;
+    line-height: 1;
+    user-select: none;
+}
+
+.step-card h3 {
+    font-size: 18px;
+    color: #1e1b4b;
+    margin-bottom: 12px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.step-card p {
+    font-size: 13.5px;
+    color: #6b7280;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   Bottom Campus Gallery Grid
+   ========================================================================== */
+.admissions-gallery-section {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.admissions-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item-box {
+    height: 240px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid #e2e8f0;
+}
+
+.gallery-item-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item-box:hover img {
+    transform: scale(1.04);
+}
+
+/* Responsive adjustment rules for mobile phones */
+@media (max-width: 768px) {
+    .admissions-side-media {
+        height: 250px;
+    }
+}
+
+/* ==========================================================================
+   Interactive Scroll-To-Top Arrow Button Styles
+   ========================================================================== */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background-color: #1b5f2f; /* Premium brand indigo/blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%; /* Forms a perfect circular ring */
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    z-index: 999; /* Layers it safely over background graphics */
+    
+    /* Smooth transition for the scaling fade-in effect */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-top-btn:hover {
+    background-color: #9be546; /* Switches to a warm orange accent on cursor hover */
+    transform: scale(1.1) translateY(-3px); /* Bounces upward slightly */
+    box-shadow: 0 6px 16px rgba(143, 211, 79, 0.4);
+}
+
+/* Active helper class triggered by JavaScript when scroll metrics are crossed */
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* Adjust button placement slightly on tiny mobile viewports to avoid covering navigation elements */
+@media (max-width: 768px) {
+    .scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+}
+/* ==========================================================================
+   Our School & Alternating Level Layout Component Styles
+   ========================================================================== */
+.school-levels-wrapper {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+
+.level-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+/* Inverts text and picture order columns cleanly on command */
+.swap-columns {
+    flex-direction: row-reverse;
+}
+
+.level-image-box {
+    flex: 1;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+}
+
+.level-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.level-text-box {
+    flex: 1;
+}
+
+.level-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* Section Tag Colors */
+.purple-tag { background-color: #f5f3ff; color: #6d28d9; }
+.orange-tag { background-color: #fff7ed; color: #ea580c; }
+.blue-tag { background-color: #eff6ff; color: #2563eb; }
+
+.level-text-box h2 {
+    font-size: 28px;
+    color: #1e1b4b;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.level-text-box p {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Faculty Staff Section Layout
+   ========================================================================== */
+.faculty-section {
+    padding: 80px 0;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    margin-top: 20px;
+}
+
+.faculty-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.faculty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    border-color: #1b5f2f;
+}
+
+.faculty-img-box {
+    width: 100%;
+    height: 280px;
+    background-color: #cbd5e1;
+    overflow: hidden;
+}
+
+.faculty-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.faculty-info {
+    padding: 25px 20px;
+}
+
+.faculty-info h3 {
+    font-size: 18px;
+    color: #1e1b4b;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.faculty-info .role {
+    font-size: 13px;
+    color: #4f46e5;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.faculty-info .bio {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* Mobile responsive alignment safety rules */
+@media (max-width: 768px) {
+    .level-row, .swap-columns {
+        flex-direction: column !important;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    .level-image-box {
+        height: 250px;
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   Our School Page Hero Banner Style (Fixed Missing Rule)
+   ========================================================================== */
+.page-hero {
+    /* Uses a deep indigo/blue tint overlay and hooks to your master picture file */
+    background: linear-gradient(rgba(117, 115, 126, 0.85), rgba(30, 27, 75, 0.85)), url('heropic.jpg') center/cover no-repeat;
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+}
+
+.page-hero-content h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.page-hero-content p {
+    color: #cbd5e1;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Adjust layout dimensions for mobile viewports */
+@media (max-width: 768px) {
+    .page-hero-content h1 {
+        font-size: 32px;
+    }
+    .page-hero-content p {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+}
+
+/* ==========================================================================
+   School Newsletter Subscription Banner Styles
+   ========================================================================== */
+.newsletter-section {
+    background-color: #1b5f2f; /* Deep Indigo matching the school brand background */
+    color: #ffffff;
+    padding: 60px 20px;
+    border-top: 4px solid #9be546;
+    width: 100%;
+}
+
+.newsletter-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletter-content h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.newsletter-content p {
+    color: #cbd5e1;
+    font-size: 14.5px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* Flex wrapper to seamlessly fuse the text input box with the action button */
+.newsletter-input-group {
+    display: flex;
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 30px; /* Forms a sleek capsule pill frame */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-input-group input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #141614;
+    outline: none;
+}
+
+/* Custom placeholder visibility typography */
+.newsletter-input-group input::placeholder {
+    color: #9ca3af;
+}
+
+.btn-signup {
+    background-color: #1b5f2f; /* Royal Blue/Indigo badge accent button */
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #ff9800; /* Flashes bright school orange on cursor focus */
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+/* Responsive adjustment collapse rules for smaller screens */
+@media (max-width: 576px) {
+    .newsletter-input-group {
+        flex-direction: column; /* Stack input and button vertically on small mobile phone displays */
+        background: transparent;
+        padding: 0;
+        gap: 12px;
+        box-shadow: none;
+    }
+    
+    .newsletter-input-group input {
+        background-color: #ffffff;
+        border-radius: 30px;
+        padding: 14px 20px;
+        width: 100%;
+    }
+    
+    .btn-signup {
+        width: 100%;
+        padding: 14px;
+        border-radius: 30px;
+    }
+}
+
+
+/* Mobile adjustments (Screens smaller than 480px) */
+@media (max-width: 480px) {
+    .faculty-img {
+        height: auto; /* Reduces the height so less of the image is cut off */
+        aspect-ratio: 1 / 1;
+    }
+}
+
+.social-links a {
+    margin-right: 20px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* This adds a nice gap between the icon and the text */
+}
+
+/* This forces the icons to use Font Awesome's styling regardless of page fonts */
+.fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    display: inline-block;
+}
+
+
+/* Dark Screen Overlay Cover Background */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dims background elements luxuriously */
+    z-index: 99999; /* Forces the box to display on top of menu sliders */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Turns visibility active via tracking class injection */
+.modal-overlay.show-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Content Box Framework Sizing Container */
+.modal-content {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Responsive Image Layout Constraint */
+.popup-poster-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Top corner structural close mechanism */
+.close-modal-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #1e1b4b; /* Matches your luxury dark navy tone */
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Bottom Call to Action layout framework */
+.modal-action-bar {
+    margin-top: 15px;
+}
+
+.btn-popup-apply {
+    display: inline-block;
+    background-color: #1b5f2f; /* Vibrant crimson/rose highlight shade */
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.2s ease;
+}
+
+.btn-popup-apply:hover {
+    background-color: #9be546;
+}

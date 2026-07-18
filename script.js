@@ -1,0 +1,191 @@
+// ==========================================================================
+// 1. IMAGE SLIDER LOGIC
+// ==========================================================================
+const slides = document.querySelectorAll('.slide');
+let currentSlideIndex = 0;
+const slideIntervalTime = 4000; 
+
+function nextSlide() {
+    if (slides.length === 0) return;
+    slides[currentSlideIndex].classList.remove('active');
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    slides[currentSlideIndex].classList.add('active');
+}
+
+if (slides.length > 0) {
+    setInterval(nextSlide, slideIntervalTime);
+}
+
+// This main wrapper ensures the browser fully loads the webpage elements before executing scripts
+document.addEventListener('DOMContentLoaded', function() {
+    
+    /* ==========================================================================
+       2. INTERACTIVE HAMBURGER MOBILE MENU LOGIC
+       ========================================================================== */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            console.log("Navigation menu toggled successfully!");
+        });
+    } else {
+        console.warn("Hamburger elements not found on this specific page template.");
+    }
+
+
+    /* ==========================================================================
+       3. SCROLL FADE-IN ANIMATION LOGIC (INTERSECTION OBSERVER)
+       ========================================================================== */
+    const fadeElements = document.querySelectorAll('.scroll-fade-in');
+    
+    if (!('IntersectionObserver' in window)) {
+        fadeElements.forEach(element => element.classList.add('appear'));
+    } else {
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); 
+                    console.log("Element smoothly faded in!");
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: "0px 0px -40px 0px"
+        });
+        
+        fadeElements.forEach(element => {
+            scrollObserver.observe(element);
+        });
+    }
+
+
+    /* ==========================================================================
+       4. BACK TO TOP ARROW INTERACTION UTILITY
+       ========================================================================== */
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+
+    /* ==========================================================================
+       5. CONNECTED EXPRESS BACKEND CODE (UPDATED FOR ULTRA-FAST VERCEL HOSTING)
+       ========================================================================== */
+    const BACKEND_URL = "https://vercel.app";
+
+
+    // A. Newsletter Form Submission Handling
+    const newsletterForm = document.getElementById('newsletter-form'); 
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('newsletter-email').value; 
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/newsletter`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailInput })
+                });
+                
+                const data = await response.json();
+                if (data.success || response.ok) {
+                    window.location.href = "thank-you.html"; 
+                } else {
+                    alert('Error: ' + (data.error || 'Submission failed'));
+                }
+            } catch (error) {
+                console.error('Newsletter submission failed:', error);
+                alert('Submission failed. Please check your internet connection and try again.');
+            }
+        });
+    }
+
+    // B. Contact / Complaint Form Submission Handling
+    const contactForm = document.getElementById('contact-form'); 
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const nameInput = document.getElementById('contact-name').value;
+            const emailInput = document.getElementById('contact-email').value;
+            const messageInput = document.getElementById('contact-message').value;
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        name: nameInput, 
+                        email: emailInput, 
+                        message: messageInput 
+                    })
+                });
+                
+                const data = await response.json();
+                if (data.success || response.ok) {
+                    window.location.href = "thank-you.html"; 
+                } else {
+                    alert('Error: ' + (data.error || 'Submission failed'));
+                }
+            } catch (error) {
+                console.error('Contact form submission failed:', error);
+                alert('Could not send message. Please confirm your connection and try again.');
+            }
+        });
+    }
+
+
+    /* ==========================================================================
+       6. ENTRANCE ADMISSION MODAL ANNOUNCEMENT POPUP LOGIC
+       ========================================================================== */
+    const announcementPopup = document.getElementById('announcementPopup');
+    const closePopupBtn = document.getElementById('closePopupBtn');
+    const popupApplyBtn = document.getElementById('popupApplyBtn');
+
+    if (announcementPopup && closePopupBtn) {
+        // Triggers popup entry precisely 1 second after visitor arrives
+        setTimeout(() => {
+            announcementPopup.classList.add('show-popup');
+        }, 1000);
+
+        // Click event listener dismisses the modal layout
+        closePopupBtn.addEventListener('click', () => {
+            announcementPopup.classList.remove('show-popup');
+        });
+
+        // Auto-closes the popup modal whenever they click the external Apply link
+        if (popupApplyBtn) {
+            popupApplyBtn.addEventListener('click', () => {
+                announcementPopup.classList.remove('show-popup');
+            });
+        }
+
+        // Dismisses modal layout layer if backdrop area is clicked
+        announcementPopup.addEventListener('click', (e) => {
+            if (e.target === announcementPopup) {
+                announcementPopup.classList.remove('show-popup');
+            }
+        });
+    }
+
+});
