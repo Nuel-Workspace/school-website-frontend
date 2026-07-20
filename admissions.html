@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admissions - Jarspok International School</title>
+    <title>Apply Now - Jarspok International School</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="logo.png">
 </head>
@@ -26,12 +26,12 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="school.html">Our School</a></li>
-            <li><a href="admissions.html" class="active">Admissions</a></li>
+            <li><a href="apply.html" class="active">Admissions</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
 
-    <!-- ADMISSIONS HERO BANNER (Make sure hero-bg.jpg is saved in your folder) -->
+    <!-- ADMISSIONS HERO BANNER -->
     <section class="admissions-hero">
         <div class="admissions-hero-content">
             <h1>Join Jarspok International</h1>
@@ -73,7 +73,7 @@
             <div class="requirements-box">
                 <h3>Required Documentation</h3>
                 <ul class="req-list">
-                    <li>📝 Completed Registration Form</li>
+                    <li>📝 Completed Online Registration Form</li>
                     <li>👶 Original Child Birth Certificate copy</li>
                     <li>📸 Two recent passport photographs</li>
                     <li>📊 Previous school academic report cards (if applicable)</li>
@@ -94,8 +94,8 @@
                 <!-- Step 1 -->
                 <div class="step-card">
                     <div class="step-num">01</div>
-                    <h3>Obtain Application Forms</h3>
-                    <p>Visit our administrative office or request your entry booklet via our direct lines to fill in baseline records.</p>
+                    <h3>Fill Online Form</h3>
+                    <p>Toggle the tabs below to complete the digital application form for either the Primary or Secondary sections.</p>
                 </div>
 
                 <!-- Step 2 -->
@@ -115,26 +115,411 @@
         </div>
     </section>
 
-    <!-- CAMPUS LIFE GALLERY BANNER GRID -->
-    <section class="admissions-gallery-section scroll-fade-in">
-        <div class="container" style="padding-top: 0;">
-            <span class="section-tag" style="display: block; text-align: center;">Campus Environment</span>
-            <h2 class="section-title" style="text-align: center; margin-bottom: 35px;">Life at Jarspok International</h2>
+        <!-- ========================================================== -->
+    <!-- UNIFIED REGISTRATION FORM SECTION                          -->
+    <!-- ========================================================== -->
+    <section class="registration-section scroll-fade-in">
+        <div class="registration-container">
             
-            <div class="admissions-gallery-grid">
-                <div class="gallery-item-box"><img src="Ict lab.png" alt="Students in ICT lab" loading="lazy"></div>
-                <div class="gallery-item-box"><img src="Playground pic.png" alt="Children laughing outdoors" loading="lazy"></div>
-                <div class="gallery-item-box"><img src="Kiddies club 3.png" alt="Creative writing workshop" loading="lazy"></div>
+            <!-- Left Sidebar: Form Instructions Only -->
+            <div class="registration-info">
+                <div class="requirement-box">
+                    <strong>📋 IMPORTANT NOTICE (N/B) FOR SECONDARY EXAMS:</strong>
+                    <p style="font-size: 13px; margin-bottom: 10px; color: var(--text-primary);">There will be a written test in Mathematics, English and General paper. Candidates must bring to the Examination Hall:</p>
+                    <ul style="margin-top: 5px; padding-left: 15px;">
+                        <li>The duplicate copy of application form for admission duly completed.</li>
+                        <li>Receipt of payment for Application Form.</li>
+                        <li>All examination materials: biros, ruler, mathematical set (for senior classes), eraser, and pencil.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- FOOTER -->
+            <!-- Right Side: Interactive Data Entry Dashboard Card -->
+            <div class="registration-form-card">
+                <div class="form-header-main">
+                    <h3>Official Registration Portal</h3>
+                    <p class="form-subtitle">Select the appropriate department below to pull up the official school form fields.</p>
+                </div>
+
+                <!-- Classy Visual Navigation Tabs -->
+                <div class="form-tabs">
+                    <button type="button" class="tab-btn active" onclick="switchForm('primaryForm')">Daycare, Nursery & Primary</button>
+                    <button type="button" class="tab-btn" onclick="switchForm('secondaryForm')">Secondary School Section</button>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- TIER 1: DAYCARE, NURSERY & PRIMARY FORM                    -->
+                <!-- ========================================================== -->
+                <form id="primaryForm" class="registration-form active" action="#" method="POST" enctype="multipart/form-data">
+                    <div class="form-section-title">1. Child / Ward Profile</div>
+                    
+                    <div class="form-group">
+                        <label for="childName">Name of Child/Ward * <span class="label-instruction">(Surname first, write name in full)</span></label>
+                        <input type="text" id="childName" name="childName" required placeholder="e.g. SMITH, DAVID JOHN">
+                    </div>
+
+                    <div class="form-row standard-row">
+                        <div class="form-group">
+                            <label for="childDob">Date of Birth *</label>
+                            <input type="date" id="childDob" name="childDob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="childSex">Sex *</label>
+                            <select id="childSex" name="childSex" required>
+                                <option value="" disabled selected>Select sex...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="placeOfBirth">Place of Birth * <span class="label-instruction">(Give name of Hospital/Maternity)</span></label>
+                    <input type="text" id="placeOfBirth" name="placeOfBirth" required>
+                </div>
+
+                <div class="form-row triple-row">
+                    <div class="form-group">
+                        <label for="stateOfOrigin">State of Origin *</label>
+                        <input type="text" id="stateOfOrigin" name="stateOfOrigin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationality *</label>
+                        <input type="text" id="nationality" name="nationality" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="religion">Religion *</label>
+                        <input type="text" id="religion" name="religion" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="classApplying">Class Applying For *</label>
+                    <select id="classApplying" name="classApplying" required>
+                        <option value="" disabled selected>Select class...</option>
+                        <option value="Daycare">Daycare</option>
+                        <option value="Pre-Nursery">Pre-Nursery</option>
+                        <option value="Nursery">Nursery</option>
+                        <option value="Basic Class">Basic Class</option>
+                    </select>
+                </div>
+
+                <div class="form-section-title">2. Parental Information</div>
+                
+                <div class="parent-sub-card">
+                    <div class="parent-sub-title">🔑 Father's Details</div>
+                    <div class="form-group">
+                        <label for="fatherName">Father's Full Name *</label>
+                        <input type="text" id="fatherName" name="fatherName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fatherAddress">Residential Address *</label>
+                        <input type="text" id="fatherAddress" name="fatherAddress" required>
+                    </div>
+                    <div class="form-row standard-row">
+                        <div class="form-group">
+                            <label for="fatherOccupation">Occupation</label>
+                            <input type="text" id="fatherOccupation" name="fatherOccupation">
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherOfficeAddress">Office Address</label>
+                            <input type="text" id="fatherOfficeAddress" name="fatherOfficeAddress">
+                        </div>
+                    </div>
+                    <div class="form-row standard-row">
+                        <div class="form-group">
+                            <label for="fatherHomeTel">Telephone (Home) *</label>
+                            <input type="tel" id="fatherHomeTel" name="fatherHomeTel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherOfficeTel">Telephone (Office)</label>
+                            <input type="tel" id="fatherOfficeTel" name="fatherOfficeTel">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parent-sub-card">
+                    <div class="parent-sub-title">🔑 Mother's Details</div>
+                    <div class="form-group">
+                        <label for="motherName">Mother's Full Name *</label>
+                        <input type="text" id="motherName" name="motherName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="motherAddress">Residential Address *</label>
+                        <input type="text" id="motherAddress" name="motherAddress" required>
+                    </div>
+                    <div class="form-row standard-row">
+                        <div class="form-group">
+                            <label for="motherOccupation">Occupation</label>
+                            <input type="text" id="motherOccupation" name="motherOccupation">
+                        </div>
+                        <div class="form-group">
+                            <label for="motherOfficeAddress">Office Address</label>
+                            <input type="text" id="motherOfficeAddress" name="motherOfficeAddress">
+                        </div>
+                    </div>
+                    <div class="form-row standard-row">
+                        <div class="form-group">
+                            <label for="motherHomeTel">Telephone (Home) *</label>
+                            <input type="tel" id="motherHomeTel" name="motherHomeTel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="motherOfficeTel">Telephone (Office)</label>
+                            <input type="tel" id="motherOfficeTel" name="motherOfficeTel">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="livingWith">Does the Child live with? *</label>
+                    <select id="livingWith" name="livingWith" required>
+                        <option value="" disabled selected>Select alternative...</option>
+                        <option value="Both Parents">Both Parents</option>
+                        <option value="Father">Father</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Guardian">Guardian</option>
+                    </select>
+                </div>
+
+                <div class="form-section-title">3. Schools Attended & Medical Profile</div>
+                <div class="academic-sub-card">
+                    <div class="form-row triple-row">
+                        <div class="form-group"><label>Previous School Name</label><input type="text" name="pSchool"></div>
+                        <div class="form-group"><label>Dates Attended</label><input type="text" name="pDate"></div>
+                        <div class="form-group"><label>Qualification</label><input type="text" name="pQual"></div>
+                    </div>
+                </div>
+
+                <div class="medical-history-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="medical-checkbox-item"><input type="checkbox" id="pEpilepsy" name="pEpilepsy"><label for="pEpilepsy">Epilepsy</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="pBleed" name="pBleed"><label for="pBleed">Nose Bleeding</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="pHear" name="pHear"><label for="pHear">Defective Hearing</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="pSight" name="pSight"><label for="pSight">Defective Eyesight</label></div>
+                </div>
+
+                <div class="form-row standard-row">
+                    <div class="form-group">
+                        <label for="pEmergencyAddress">Emergency Contact Address *</label>
+                        <input type="text" id="pEmergencyAddress" name="pEmergencyAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pUpload">Passport Photographs *</label>
+                        <div class="file-upload-zone">
+                            <input type="file" id="pUpload" name="pUpload" accept="image/*" multiple required>
+                            <span class="file-custom-text">Attach 2 passport photographs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions-row">
+                    <button type="button" class="print-portal-btn" onclick="window.print()">🖨️ Print Form Copy</button>
+                </div>
+
+                <button type="submit" class="submit-pupil-btn">Submit Primary Entry Form</button>
+            </form>
+
+            <!-- ========================================================== -->
+            <!-- TIER 2: SECONDARY SCHOOL SECTION                           -->
+            <!-- ========================================================== -->
+            <form id="secondaryForm" class="registration-form" action="#" method="POST" enctype="multipart/form-data">
+                <div class="form-section-title">1. Candidate Identity Sheet</div>
+                
+                <div class="form-row standard-row">
+                    <div class="form-group">
+                        <label for="secSurname">Surname * <span class="label-instruction">(In Block Letters)</span></label>
+                        <input type="text" id="secSurname" name="secSurname" required placeholder="e.g. OKORO">
+                    </div>
+                    <div class="form-group">
+                        <label for="secOtherNames">Other Names *</label>
+                        <input type="text" id="secOtherNames" name="secOtherNames" required placeholder="e.g. Chukwuma Emmanuel">
+                    </div>
+                </div>
+
+                <div class="form-row triple-row">
+                    <div class="form-group">
+                        <label for="secSex">Sex *</label>
+                        <select id="secSex" name="secSex" required>
+                            <option value="" disabled selected>Choose...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="secDob">Date of Birth *</label>
+                    <div class="form-row standard-row" style="margin-bottom: 0; gap: 10px;">
+                        <div class="form-group">
+                            <label for="secAge">Age *</label>
+                            <input type="number" id="secAge" name="secAge" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="secNextBday">Next Birthday *</label>
+                            <input type="number" id="secNextBday" name="secNextBday" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row triple-row">
+                    <div class="form-group">
+                        <label for="secNationality">Nationality *</label>
+                        <input type="text" id="secNationality" name="secNationality" required value="Nigerian">
+                    </div>
+                    <div class="form-group">
+                        <label for="secState">State of Origin *</label>
+                        <input type="text" id="secState" name="secState" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="secLga">Local Government Area (L.G.A.) *</label>
+                        <input type="text" id="secLga" name="secLga" required>
+                    </div>
+                </div>
+
+                <div class="form-row standard-row">
+                    <div class="form-group">
+                        <label for="secReligion">Religion *</label>
+                        <input type="text" id="secReligion" name="secReligion" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="secClassApplying">Class Applying For *</label>
+                        <input type="text" id="secClassApplying" name="secClassApplying" required placeholder="e.g. JSS 1">
+                    </div>
+                </div>
+
+                <div class="form-section-title">2. Parent / Guardian Contact Details</div>
+                
+                <div class="form-group">
+                    <label for="secParentName">Name of Parent / Guardian *</label>
+                    <input type="text" id="secParentName" name="secParentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="secParentAddress">Address of Parent / Guardian *</label>
+                    <input type="text" id="secParentAddress" name="secParentAddress" required>
+                </div>
+
+                <div class="form-row standard-row">
+                    <div class="form-group">
+                        <label for="secParentHomePhone">Telephone Number (Home) *</label>
+                        <input type="tel" id="secParentHomePhone" name="secParentHomePhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="secParentOfficePhone">Telephone Number (Office)</label>
+                        <input type="tel" id="secParentOfficePhone" name="secParentOfficePhone">
+                    </div>
+                </div>
+
+                <div class="form-row standard-row">
+                    <div class="form-group">
+                        <label for="fatherJob">Father's Occupation</label>
+                        <input type="text" id="fatherJob" name="fatherJob">
+                    </div>
+                    <div class="form-group">
+                        <label for="motherJob">Mother's Occupation</label>
+                        <input type="text" id="motherJob" name="motherJob">
+                    </div>
+                </div>
+
+                <div class="form-section-title">3. Past School Background Records & Verification</div>
+                
+                <div class="form-row standard-row">
+                    <div class="form-group">
+                        <label for="secLastSchool">Schools Last Attended and Year *</label>
+                        <input type="text" id="secLastSchool" name="secLastSchool" required placeholder="e.g. Primary School Name, 2025">
+                    </div>
+                    <div class="form-group">
+                        <label for="secLastClass">Class Last Attended *</label>
+                        <input type="text" id="secLastClass" name="secLastClass" required placeholder="e.g. Primary 6">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="secEvidence">Evidence of Last Class Attended / Result Sheet *</label>
+                    <div class="file-upload-zone">
+                        <input type="file" id="secEvidence" name="secEvidence" accept=".pdf,image/*" required>
+                        <span class="file-custom-text">Upload crisp scanned report card documents</span>
+                    </div>
+                </div>
+
+                <div class="form-section-title">4. Health History Profile (Secondary)</div>
+                <div class="medical-history-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="medical-checkbox-item"><input type="checkbox" id="sEpilepsy" name="sEpilepsy"><label for="sEpilepsy">Epilepsy</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="sBleed" name="sBleed"><label for="sBleed">Nose Bleeding</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="sHear" name="sHear"><label for="sHear">Defective Hearing</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="sSight" name="sSight"><label for="sSight">Defective Eyesight</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="sSickle" name="sSickle"><label for="sSickle">Sickle Cell?</label></div>
+                    <div class="medical-checkbox-item"><input type="checkbox" id="sAsthma" name="sAsthma"><label for="sAsthma">Asthma?</label></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="secOtherHealth">Any other health problem(s)?</label>
+                    <textarea id="secOtherHealth" name="secOtherHealth" rows="2" placeholder="List any other chronic conditions..."></textarea>
+                </div>
+
+                <div class="form-section-title">5. Guarantor Endorsement & Liability</div>
+                <div class="parent-sub-card">
+                    <div class="parent-sub-title">🛡️ Guarantor Verification Section</div>
+                    
+                    <div class="form-group">
+                        <label for="guarantorName">Guarantor's Name *</label>
+                        <input type="text" id="guarantorName" name="guarantorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guarantorHomeAddress">Home Address of Guarantor *</label>
+                        <input type="text" id="guarantorHomeAddress" name="guarantorHomeAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guarantorOffice">Office Address of Guarantor *</label>
+                        <input type="text" id="guarantorOffice" name="guarantorOffice" required>
+                    </div>
+
+                    <div class="declaration-text" style="margin-top: 20px; font-size: 12px; border-left-color: #dc2626;">
+                        GUARANTOR DECLARATION: I GUARANTEE THE APPLICANT AND ACCEPT FULL RESPONSIBILITY FOR HIS/HER BEHAVIOUR/TRAINING.
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label for="guarantorSign">Guarantor Digital Confirmation Signature * <span class="label-instruction">(Type Full Name to Authorize)</span></label>
+                        <input type="text" id="guarantorSign" name="guarantorSign" required placeholder="Type legal name">
+                    </div>
+                </div>
+
+                <div class="declaration-box">
+                    <div class="declaration-text">
+                        NOTICE: COMPLETE THE REGISTRATION FORM IN DUPLICATE. BY DIGITALLY CONFIRMING BELOW, THE PARENT/GUARDIAN WISHES TO ENROLL THE CHILD AT JARSPOK INTERNATIONAL SCHOOLS PH AND WILL ABIDE BY ALL COUNCILS RULES.
+                    </div>
+                    <div class="form-row standard-row">
+                        <div class="form-group">
+                            <label for="candidateDigitalSign">Candidate Confirmation * <span class="label-instruction">(Type Student Name)</span></label>
+                            <input type="text" id="candidateDigitalSign" name="candidateDigitalSign" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parentDigitalSign">Parent Confirmation * <span class="label-instruction">(Type Sponsor Name)</span></label>
+                            <input type="text" id="parentDigitalSign" name="parentDigitalSign" required>
+                        </div>
+                    </div>
+                        <div class="agree-checkbox">
+                        <input type="checkbox" id="legalAgreeSec" name="legalAgreeSec" required>
+                        <label for="legalAgreeSec"><strong>I verify that all entries match both physical document sheets accurately *</strong></label>
+                    </div>
+                </div>
+
+                <!-- This is the single correct side-by-side row container -->
+                <div class="form-actions-row">
+                    <button type="button" class="print-portal-btn" onclick="window.print()">🖨️ Print Form Copy</button>
+                </div>
+            </form>
+
+
+                <button type="submit" class="submit-pupil-btn">Submit Secondary Registration</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
     <footer>
         <p>&copy; 2026 Jarspok International School. All rights reserved.</p>
     </footer>
 
     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">&uparrow;</button>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
