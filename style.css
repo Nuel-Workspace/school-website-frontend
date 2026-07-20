@@ -1562,3 +1562,982 @@ footer {
 .btn-popup-apply:hover {
     background-color: #9be546;
 }
+
+
+
+/* --- PUPIL REGISTRATION DESIGN SYSTEM --- */
+:root {
+    --school-primary: #0f172a;   /* Deep elegant navy blue */
+    --school-accent: #1b5f2f;    /* Trustworthy royal blue */
+    --form-text: #334155;        /* Dark grey text */
+    --muted-grey: #64748b;       /* Descriptive light grey text */
+    --section-bg: #f8fafc;       /* Light cool background canvas */
+    --box-shadow-ui: 0 20px 25px -5px rgba(0, 0, 0, 0.04), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+}
+
+.registration-section {
+    background-color: var(--section-bg);
+    padding: 90px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.registration-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Informational Left Sidebar */
+.registration-info h2 {
+    color: var(--school-primary);
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.registration-info p {
+    color: var(--muted-grey);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.requirement-box {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid var(--school-accent);
+    box-shadow: var(--box-shadow-ui);
+}
+
+.requirement-box strong {
+    display: block;
+    color: var(--school-primary);
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.requirement-box ul {
+    padding-left: 20px;
+    color: var(--form-text);
+    font-size: 14px;
+}
+
+.requirement-box ul li {
+    margin-bottom: 8px;
+}
+
+/* Elegant Form Card */
+.registration-form-card {
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 16px;
+    box-shadow: var(--box-shadow-ui);
+}
+
+.registration-form-card h3 {
+    color: var(--school-primary);
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    color: var(--muted-grey);
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+/* Classy Inline Section Dividers */
+.form-section-title {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--school-accent);
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+    margin: 30px 0 20px 0;
+}
+
+.form-section-title:first-of-type {
+    margin-top: 0;
+}
+
+/* Grid Layouts */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--school-primary);
+    margin-bottom: 8px;
+}
+
+/* Form Controls Styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--form-text);
+    background-color: #ffffff;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--school-accent);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* Modern File Upload Wrapper */
+.file-upload-zone {
+    border: 2px dashed #cbd5e1;
+    padding: 22px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f8fafc;
+    transition: border-color 0.2s ease;
+}
+
+.file-upload-zone:hover {
+    border-color: var(--school-accent);
+}
+
+.file-upload-zone input[type="file"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+.file-custom-text {
+    display: block;
+    font-size: 12px;
+    color: var(--muted-grey);
+    margin-top: 6px;
+}
+
+/* Submit Action Control */
+.submit-pupil-btn {
+    width: 100%;
+    background-color: var(--school-primary);
+    color: #ffffff;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+}
+
+.submit-pupil-btn:hover {
+    background-color: var(--school-accent);
+}
+
+footer {
+    border-top: 1px solid #e2e8f0;
+}
+
+/* --- MOBILE OPTIMIZATION RESPONSIVENESS --- */
+@media (max-width: 968px) {
+    .registration-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .registration-form-card {
+        padding: 30px 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+
+
+/* ==========================================================================
+   JARSPOK INTERNATIONAL SCHOOLS - UNIFIED PORTAL DESIGN SYSTEM
+   ========================================================================== */
+:root {
+    --jarspok-navy: #0f172a;      /* Premium deep brand color */
+    --jarspok-blue: #2563eb;      /* Educational trusted royal blue */
+    --text-primary: #334155;      /* High contrast primary text body */
+    --text-secondary: #64748b;    /* Muted label and direction color */
+    --canvas-bg: #f8fafc;         /* Ultra clean page canvas background */
+    --border-ui: #e2e8f0;         /* Fine structural baseline borders */
+    --premium-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.03), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+.registration-section {
+    background-color: var(--canvas-bg);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.registration-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* --- LEFT SIDEBAR INSTRUCTION BOX --- */
+.requirement-box {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid var(--jarspok-blue);
+    box-shadow: var(--premium-shadow);
+}
+
+.requirement-box strong {
+    display: block;
+    color: var(--jarspok-navy);
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.requirement-box ul {
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.requirement-box ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* --- RIGHT SIDEBAR DATA OVERVIEW DASHBOARD CARD --- */
+.registration-form-card {
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 16px;
+    box-shadow: var(--premium-shadow);
+    border: 1px solid #f1f5f9;
+}
+
+.form-header-main h3 {
+    font-size: 26px;
+    color: var(--jarspok-navy);
+}
+
+.form-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+}
+
+/* --- SEAMLESS FRONT END TABS SWITCHER CONTROLS --- */
+.form-tabs {
+    display: flex;
+    gap: 10px;
+    background-color: #f1f5f9;
+    padding: 6px;
+    border-radius: 10px;
+    margin-bottom: 35px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.tab-btn.active {
+    background-color: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* Toggles form visibilities instantly via JavaScript */
+.registration-form {
+    display: none;
+}
+
+.registration-form.active {
+    display: block;
+}
+
+/* --- STRUCTURAL FORM GROUPS & BLOCKS --- */
+.form-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--jarspok-blue);
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 6px;
+    margin: 40px 0 24px 0;
+}
+
+.form-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.parent-sub-card, .academic-sub-card {
+    background-color: #f8fafc;
+    border: 1px solid var(--border-ui);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.parent-sub-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--jarspok-navy);
+    margin-bottom: 18px;
+}
+
+/* Grid Matrix Configurations */
+.form-row.standard-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-row.triple-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--jarspok-navy);
+    margin-bottom: 6px;
+}
+
+.label-instruction {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* --- MEDICAL SELECTION COMPONENT GRID RULES --- */
+.medical-history-grid {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 25px;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-ui);
+}
+
+.medical-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.medical-checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.medical-checkbox-item label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--jarspok-navy);
+    cursor: pointer;
+}
+
+/* --- HIGH END CONFIRMATION AND PROOF WRAPPERS --- */
+.declaration-box {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 40px 0 25px 0;
+}
+
+.declaration-text {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 700;
+    color: var(--jarspok-navy);
+    letter-spacing: 0.3px;
+    margin-bottom: 25px;
+    border-left: 3px solid var(--jarspok-blue);
+    padding-left: 15px;
+}
+
+.agree-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.agree-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.agree-checkbox label {
+    font-size: 14px;
+    color: var(--jarspok-navy);
+}
+
+/* --- FORM DATA SELECTION ELEMENTS ENGINE --- */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    color: var(--text-primary);
+    background-color: #ffffff;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--jarspok-blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.file-upload-zone {
+    border: 2px dashed #cbd5e1;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease;
+}
+
+.file-upload-zone:hover {
+    border-color: var(--jarspok-blue);
+}
+
+.file-custom-text {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* --- PREMIUM FORM MASTER CTA ACTIONS --- */
+.submit-pupil-btn {
+    width: 100%;
+    background-color: var(--jarspok-navy);
+    color: #ffffff;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.submit-pupil-btn:hover {
+    background-color: var(--jarspok-blue);
+}
+
+.submit-pupil-btn:active {
+    transform: scale(0.995);
+}
+
+/* --- FLUID BREAKPOINT ECOSYSTEM (TABLETS & PHONES) --- */
+@media (max-width: 968px) {
+    .registration-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .registration-form-card {
+        padding: 25px 15px;
+    }
+    
+    .form-row.standard-row,
+    .form-row.triple-row,
+    .medical-history-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+}
+
+
+/* Hide forms by default */
+.registration-form {
+    display: none;
+}
+
+/* Only display the form that has the active class tag */
+.registration-form.active {
+    display: block;
+}
+
+
+/* --- PRINT COMPONENT ACTION LAYOUTS --- */
+.form-actions-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.print-portal-btn {
+    background-color: #64748b; /* Sleek slate grey */
+    color: #ffffff;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.print-portal-btn:hover {
+    background-color: #475569;
+}
+
+/* --- OPTIMIZED PRINTER RENDERING CANVAS --- */
+/* ==========================================================================
+   HIGHLY COMPRESSED PRINTER PAGE BUDGET OPTIMIZATION (EXACTLY 2 PAGES)
+   ========================================================================== */
+@media print {
+    /* 1. Eliminate heavy web components and interactive layouts completely */
+    .navbar, 
+    .admissions-hero, 
+    .container, 
+    .requirements-section, 
+    .timeline-section, 
+    .registration-info, 
+    .form-tabs, 
+    .form-actions-row, 
+    footer, 
+    .scroll-top-btn {
+        display: none !important;
+    }
+
+    /* 2. Tighten up page edges to maximize printable canvas room */
+    @page {
+        size: A4 vertical;
+        margin: 8mm 10mm 8mm 10mm; /* Minimal margins to keep data compressed */
+    }
+
+    body, .registration-section {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 11px !important; /* Scaled down root text size */
+    }
+
+    .registration-container {
+        display: block !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .registration-form-card {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* Hide inactive form asset tracks entirely */
+    .registration-form {
+        display: none !important;
+    }
+    .registration-form.active {
+        display: block !important;
+    }
+
+    /* 3. Tighten titles and section header spacings */
+    .form-header-main h3 {
+        font-size: 16px !important;
+        margin-bottom: 2px !important;
+        text-align: center !important;
+        text-transform: uppercase !important;
+    }
+
+    .form-subtitle {
+        font-size: 10px !important;
+        margin-bottom: 12px !important;
+        text-align: center !important;
+    }
+
+    .form-section-title {
+        font-size: 11px !important;
+        margin: 12px 0 8px 0 !important;
+        padding-bottom: 2px !important;
+        border-bottom: 1px solid #000000 !important;
+        color: #000000 !important;
+    }
+
+    /* 4. Force grid rows to align perfectly in columns on paper */
+    .form-row.standard-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+
+    .form-row.triple-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 10px !important;
+    }
+
+    .form-group {
+        margin-bottom: 8px !important; /* Heavily compressed row gaps */
+    }
+
+    .form-group label {
+        font-size: 10px !important;
+        margin-bottom: 2px !important;
+        font-weight: bold !important;
+    }
+
+    .label-instruction {
+        font-size: 9px !important;
+    }
+
+    /* 5. Compact down input textboxes into flat underline style borders */
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+        border: none !important;
+        border-bottom: 1px solid #000000 !important; /* Gives a clean physical paperwork look */
+        border-radius: 0 !important;
+        padding: 4px 0 !important;
+        font-size: 11px !important;
+        background: transparent !important;
+        color: #000000 !important;
+        height: auto !important;
+    }
+
+    /* Collapse textareas down to save valuable page space */
+    textarea {
+        rows: 2 !important;
+    }
+
+    /* 6. Flatten nested profile tracking cards */
+    .parent-sub-card, .academic-sub-card {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .parent-sub-title {
+        font-size: 11px !important;
+        margin-bottom: 6px !important;
+        border-bottom: 1px dashed #666666 !important;
+        padding-bottom: 2px !important;
+    }
+
+    /* Flatten out file drop zones so they don't print as huge ugly boxes */
+    .file-upload-zone {
+        border: 1px dashed #000000 !important;
+        padding: 6px !important;
+        background: transparent !important;
+    }
+
+    /* 7. Tighten medical checkboxes into a neat 3-column rows matrix */
+    .medical-history-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+        background: transparent !important;
+        padding: 5px 0 !important;
+        border: none !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* 8. Compress legal declaration and signature parameters */
+    .declaration-box {
+        background: transparent !important;
+        border: 1px solid #000000 !important;
+        padding: 12px !important;
+        margin: 15px 0 0 0 !important;
+    }
+
+    .declaration-text {
+        font-size: 9px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 12px !important;
+        padding-left: 8px !important;
+        border-left: 2px solid #000000 !important;
+    }
+
+    .declaration-inputs {
+        display: grid !important;
+        grid-template-columns: 1.5fr 1fr !important;
+        gap: 12px !important;
+    }
+
+    .agree-checkbox {
+        margin-top: 5px !important;
+    }
+
+    .agree-checkbox input {
+        width: 12px !important;
+        height: 12px !important;
+    }
+}
+
+
+/* Container Grid Setup */
+.activities-showcase-grid {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
+    /* This sets up a solid 2-column system */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+}
+
+/* Individual Showcase Card Link Wrapper */
+.hallel-card {
+    position: relative;
+    height: 400px;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: block;
+}
+
+/* CRUCIAL LAYOUT RULE: Makes the first card stretch from end to end */
+.featured-wide {
+    grid-column: span 2;
+    height: 450px; /* Slightly taller for visual importance */
+}
+
+/* 4-Image Layout Grid for the Wide Banner Card */
+.wide-track {
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-rows: 1fr !important;
+}
+
+.wide-track img:nth-child(1) {
+    grid-row: span 1 !important; /* Reset layout rules from normal track */
+}
+
+/* Integrated Image Layout Block Frame for Regular 4 Sections */
+.hallel-image-track {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 6px;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hallel-image-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Make the first image stretch vertically on standard cards */
+.hallel-image-track img:nth-child(1) {
+    grid-row: span 2;
+}
+
+/* The Overlay Text Plate (Sits over the bottom side of the images) */
+.hallel-text-plate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85) 40%, rgba(0, 0, 0, 0.95));
+    padding: 40px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 5;
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.tag-indicator {
+    background-color: #ffcc00; /* School Accent Gold */
+    color: #111;
+    padding: 4px 10px;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    align-self: flex-start;
+    margin-bottom: 8px;
+}
+
+.hallel-text-plate h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+    font-family: sans-serif;
+}
+
+.action-hint {
+    color: #aaa;
+    font-size: 13px;
+}
+
+/* ========================================================
+  /* ========================================================
+   HOVER INTERACTION ANIMATION LOGIC (RESTORED)
+   ======================================================== */
+
+/* 1. When hovering over ANY card, the text panel slides down and fades out */
+.hallel-card:hover .hallel-text-plate {
+    transform: translateY(30px) !important;
+    opacity: 0 !important;
+}
+
+/* 2. When hovering over ANY card, the pictures slightly zoom for a premium look */
+.hallel-card:hover .hallel-image-track {
+    transform: scale(1.03) !important;
+}
+
+/* 3. Ensure the text plate has smooth transition rules built-in */
+.hallel-text-plate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85) 40%, rgba(0, 0, 0, 0.95));
+    padding: 40px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 5;
+    /* This makes the disappearing and reappearing effect buttery smooth */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-in-out !important;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ========================================================
+   OPTIMIZED MOBILE SCREEN VIEW (COMPACT RESPONSIVE)
+   ======================================================== */
+@media (max-width: 900px) {
+    /* 1. Instead of stacking in 1 column, keep a tight 2-column grid on mobile */
+    .activities-showcase-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; /* Tighter padding gaps for mobile view */
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    /* 2. Keep the top featured card stretching fully from side to side */
+    .featured-wide {
+        grid-column: span 2; 
+        height: 220px; /* Highly compact featured header height */
+    }
+
+    /* Make the 4 images inside the wide card sit nicely in a mini 2x2 grid */
+    .wide-track {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+        gap: 3px !important;
+    }
+
+    /* 3. Shorten the height of the normal cards so they don't look too long */
+    .hallel-card {
+        height: 180px; 
+    }
+
+    /* Adjust the text padding inside the plate so it fits the small height */
+    .hallel-text-plate {
+        padding: 20px 15px 15px 15px;
+    }
+
+    .hallel-text-plate h2 {
+        font-size: 1.1rem; /* Smaller, sharper font sizes for phone screens */
+        margin-bottom: 2px;
+    }
+
+    .tag-indicator {
+        padding: 2px 6px;
+        font-size: 8px;
+        margin-bottom: 4px;
+    }
+
+    .action-hint {
+        font-size: 10px;
+    }
+
+    /* 4. Keep text fully visible on mobile touch screens since there is no mouse hover */
+    .hallel-card:hover .hallel-text-plate {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* For extremely narrow phones (like older iPhones) */
+@media (max-width: 400px) {
+    .hallel-card {
+        height: 160px; /* Extra compact safety adjustment */
+    }
+    .hallel-text-plate h2 {
+        font-size: 1rem;
+    }
+}
