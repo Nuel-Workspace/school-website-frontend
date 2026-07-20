@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARSPOK INTERNATIONAL SCHOOL</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    
+    <!-- ADMISSION ANNOUNCEMENT POPUP MODAL -->
+<div id="announcementPopup" class="modal-overlay">
+    <div class="modal-content">
+        <!-- Close button to dismiss the modal framework safely -->
+        <button id="closePopupBtn" class="close-modal-btn">&times;</button>
+        
+        <!-- Main Graphic Display: Update src with your real flyer layout image path -->
+        <div class="modal-image-wrapper">
+            <img src="Banner(1).jpeg" alt="School Admission Banner" class="popup-poster-img">
+        </div>
+        
+        <!-- Core Call-to-Action Link: Redirects to your live Google Form -->
+        <div class="modal-action-bar">
+            <!-- PASTE YOUR GOOGLE FORM LINK IN THE HREF ATTRIBUTE BELOW -->
+            <a href="https://forms.gle/TYzQi2FBA3YYTVM87" target="_blank" id="popupApplyBtn" class="btn-popup-apply">Apply Now</a>
+        </div>
+    </div>
+</div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="jarspok logo" class="logo-img">
+        <span>JARSPOK</span>
+        </div>
+
+        <button class="hamburger" id="navToggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="school.html">Our School</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN IMAGE-FIRST SHOWCASE GRID -->
+    <main class="activities-showcase-grid">
+
+        <!-- NEW ADDITIONAL SECTION 1: WIDE FEATURED SHOWCASE (STRETCHES FULL WIDTH) -->
+        <a href="gallery-featured.html" class="hallel-card featured-wide">
+            <!-- Full Background Pictures Layout with 4 images for the wide view -->
+            <div class="hallel-image-track wide-track">
+                <img src="featured1.jpg" alt="Featured School Event 1">
+                <img src="featured2.jpg" alt="Featured School Event 2">
+                <img src="featured3.jpg" alt="Featured School Event 3">
+                <img src="featured4.jpg" alt="Featured School Event 4">
+            </div>
+            <!-- Sliding/Fading Text Plate -->
+            <div class="hallel-text-plate">
+                <span class="tag-indicator" style="background-color: #ff3b30; color: #fff;">Featured Event</span>
+                <h2>School Life & Highlights</h2>
+                <span class="action-hint">Click to open full featured gallery &rarr;</span>
+            </div>
+        </a>
+
+        <!-- SECTION 2: SPORTS & ATHLETICS -->
+        <a href="gallery-sports.html" class="hallel-card">
+            <div class="hallel-image-track">
+                <img src="sports1.jpg" alt="Sports 1">
+                <img src="sports2.jpg" alt="Sports 2">
+                <img src="sports3.jpg" alt="Sports 3">
+            </div>
+            <div class="hallel-text-plate">
+                <span class="tag-indicator">Sports</span>
+                <h2>Sports & Athletics</h2>
+                <span class="action-hint">Click to open full gallery &rarr;</span>
+            </div>
+        </a>
+
+        <!-- SECTION 3: SCIENCE & TECHNOLOGY -->
+        <a href="gallery-science.html" class="hallel-card">
+            <div class="hallel-image-track">
+                <img src="science1.jpg" alt="Science 1">
+                <img src="science2.jpg" alt="Science 2">
+                <img src="science3.jpg" alt="Science 3">
+            </div>
+            <div class="hallel-text-plate">
+                <span class="tag-indicator">Academics</span>
+                <h2>Science & Tech</h2>
+                <span class="action-hint">Click to open full gallery &rarr;</span>
+            </div>
+        </a>
+
+        <!-- SECTION 4: ARTS & CULTURE -->
+        <a href="gallery-arts.html" class="hallel-card">
+            <div class="hallel-image-track">
+                <img src="arts1.jpg" alt="Arts 1">
+                <img src="arts2.jpg" alt="Arts 2">
+                <img src="arts3.jpg" alt="Arts 3">
+            </div>
+            <div class="hallel-text-plate">
+                <span class="tag-indicator">Creativity</span>
+                <h2>Arts & Culture</h2>
+                <span class="action-hint">Click to open full gallery &rarr;</span>
+            </div>
+        </a>
+
+        <!-- SECTION 5: GRADUATION & AWARDS -->
+        <a href="gallery-graduation.html" class="hallel-card">
+            <div class="hallel-image-track">
+                <img src="grad1.jpg" alt="Graduation 1">
+                <img src="grad2.jpg" alt="Graduation 2">
+                <img src="grad3.jpg" alt="Graduation 3">
+            </div>
+            <div class="hallel-text-plate">
+                <span class="tag-indicator">Ceremony</span>
+                <h2>Awards Day</h2>
+                <span class="action-hint">Click to open full gallery &rarr;</span>
+            </div>
+        </a>
+
+    </main>
+<!-- 5. FOOTER -->
+    <footer>
+        <p>&copy; 2026 Jarspok Schools. All rights reserved.</p>
+    </footer>
+
+     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">&uparrow;</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
