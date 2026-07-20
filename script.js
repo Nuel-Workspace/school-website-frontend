@@ -189,3 +189,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+function switchForm(formId) {
+    // 1. Hide all registration form sections
+    document.querySelectorAll('.registration-form').forEach(form => {
+        form.classList.remove('active');
+    });
+
+    // 2. Take away the highlighted "active" styling from all tab buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // 3. Show the specific form section that was clicked
+    document.getElementById(formId).classList.add('active');
+
+    // 4. Highlight the button that was just clicked
+    const clickedButton = Array.from(document.querySelectorAll('.tab-btn')).find(btn => 
+        btn.getAttribute('onclick').includes(formId)
+    );
+    if (clickedButton) {
+        clickedButton.classList.add('active');
+    }
+}
+
+
+// --- Double Click Redirection Logic Framework ---
+document.querySelectorAll('.hallel-card').forEach(card => {
+    card.addEventListener('dblclick', function() {
+        const destinationUrl = this.getAttribute('data-url');
+        if (destinationUrl) {
+            window.location.href = destinationUrl;
+        }
+    });
+});
