@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // C. Admission Form Submission (UPDATED WITH AUTOMATIC PDF GENERATION)
+        // C. Admission Form Submission (STABLE VERCEL EDITION)
     ["primaryForm", "secondaryForm"].forEach(formId => {
         const form = document.getElementById(formId);
         if (!form) return;
@@ -172,26 +172,28 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             try {
-                // 1. Generate the PDF as a Blob object from the form contents
-                const pdfBlob = await html2pdf().set(options).from(form).outputPdf('blob');
+                // 1. Generate and save the PDF locally for the user right away
+                await html2pdf().set(options).from(form).save();
 
-                // 2. Trigger a local download copy for the applicant's record
-                const downloadLink = document.createElement('a');
-                downloadLink.href = URL.createObjectURL(pdfBlob);
-                downloadLink.download = `${formId}_Receipt.pdf`;
-                downloadLink.click();
+                // 2. Safely capture individual field values from your form layout
+                // Make sure these match the 'name' attributes on your HTML input tags!
+                const studentNameValue = form.querySelector('[name="studentName"]')?.value || "Applicant";
+                const studentEmailValue = form.querySelector('[name="studentEmail"]')?.value || "";
+                const studentPhoneValue = form.querySelector('[name="studentPhone"]')?.value || "";
+                const courseValue = form.querySelector('[name="course"]')?.value || "";
 
-                // 3. Gather up all the existing data fields inside the HTML form
-                const formData = new FormData(form);
-                
-                // 4. Append the newly generated PDF file object into the data bundle
-                // 'pdfFile' matches the upload name your Multer setup on server.js is looking for
-                formData.append('pdfFile', pdfBlob, `${formId}_Receipt.pdf`);
-
-                // 5. Submit the combined data package to your Vercel Node API endpoint
+                // 3. Send clean JSON text back to your serverless Vercel function
                 const response = await fetch(`${BACKEND_URL}/api/admission`, {
                     method: "POST",
-                    body: formData // Sends directly as multipart form data
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        studentName: studentNameValue,
+                        studentEmail: studentEmailValue,
+                        studentPhone: studentPhoneValue,
+                        course: courseValue
+                    })
                 });
 
                 const result = await response.json();
