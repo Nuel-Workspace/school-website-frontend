@@ -154,6 +154,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // C. Admission Form Submission
+["primaryForm", "secondaryForm"].forEach(formId => {
+
+    const form = document.getElementById(formId);
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+
+            const response = await fetch(`${BACKEND_URL}/api/admission`, {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert("Admission application submitted successfully!");
+                form.reset();
+            } else {
+                alert(result.error || "Submission failed.");
+            }
+
+        } catch (err) {
+            console.error(err);
+            alert("Something went wrong.");
+        }
+
+    });
+
+});
 
     /* ==========================================================================
        6. ENTRANCE ADMISSION MODAL ANNOUNCEMENT POPUP LOGIC
