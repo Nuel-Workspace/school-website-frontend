@@ -86,10 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    /* ==========================================================================
+    /* ============
        5. CONNECTED EXPRESS BACKEND CODE (UPDATED FOR ULTRA-FAST VERCEL HOSTING)
-       ========================================================================== */
-    const BACKEND_URL = "https://school-website-backend-tau.vercel.app";
+       ============ */
+    const BACKEND_URL = "https://vercel.app";
 
 
     // A. Newsletter Form Submission Handling
@@ -154,43 +154,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // C. Admission Form Submission
-["primaryForm", "secondaryForm"].forEach(formId => {
+    // C. Admission Form Submission (UPDATED WITH AUTOMATIC PDF GENERATION)
+    ["primaryForm", "secondaryForm"].forEach(formId => {
+        const form = document.getElementById(formId);
+        if (!form) return;
 
-    const form = document.getElementById(formId);
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-    if (!form) return;
+            // Setup options for html2pdf
+            const options = {
+                margin:       15,
+                filename:     `${formId}_Receipt.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
 
-    form.addEventListener("submit", async (e) => {
+            try {
+                // 1. Generate the PDF as a Blob object from the form contents
+                const pdfBlob = await html2pdf().set(options).from(form).outputPdf('blob');
 
-        e.preventDefault();
+                // 2. Trigger a local download copy for the applicant's record
+                const downloadLink = document.createElement('a');
+                downloadLink.href = URL.createObjectURL(pdfBlob);
+                downloadLink.download = `${formId}_Receipt.pdf`;
+                downloadLink.click();
 
-        const formData = new FormData(form);
+                // 3. Gather up all the existing data fields inside the HTML form
+                const formData = new FormData(form);
+                
+                // 4. Append the newly generated PDF file object into the data bundle
+                // 'pdfFile' matches the upload name your Multer setup on server.js is looking for
+                formData.append('pdfFile', pdfBlob, `${formId}_Receipt.pdf`);
 
-        try {
+                // 5. Submit the combined data package to your Vercel Node API endpoint
+                const response = await fetch(`${BACKEND_URL}/api/admission`, {
+                    method: "POST",
+                    body: formData // Sends directly as multipart form data
+                });
 
-            const response = await fetch(`${BACKEND_URL}/api/admission`, {
-                method: "POST",
-                body: formData
-            });
+                const result = await response.json();
 
-            const result = await response.json();
+                if (result.success) {
+                    alert("Admission application submitted successfully and your copy has been downloaded!");
+                    form.reset();
+                } else {
+                    alert(result.error || "Submission failed.");
+                }
 
-            if (result.success) {
-                alert("Admission application submitted successfully!");
-                form.reset();
-            } else {
-                alert(result.error || "Submission failed.");
+            } catch (err) {
+                console.error("Admission form processing failure:", err);
+                alert("An error occurred while generating your form PDF or sending to the server.");
             }
-
-        } catch (err) {
-            console.error(err);
-            alert("Something went wrong.");
-        }
-
+        });
     });
-
-});
 
     /* ==========================================================================
        6. ENTRANCE ADMISSION MODAL ANNOUNCEMENT POPUP LOGIC
@@ -227,6 +245,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+// ==========================================================================
+// 7. MULTI-TAB REGISTRATION FORM VIEW TOGGLE
+// ==========================================================================
 function switchForm(formId) {
     // 1. Hide all registration form sections
     document.querySelectorAll('.registration-form').forEach(form => {
@@ -251,7 +272,9 @@ function switchForm(formId) {
 }
 
 
-// --- Double Click Redirection Logic Framework ---
+// ==========================================================================
+// 8. DOUBLE CLICK REDIRECTION CARDS FRAMEWORK
+// ==========================================================================
 document.querySelectorAll('.hallel-card').forEach(card => {
     card.addEventListener('dblclick', function() {
         const destinationUrl = this.getAttribute('data-url');
