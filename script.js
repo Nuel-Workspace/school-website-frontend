@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* ============
        5. CONNECTED EXPRESS BACKEND CODE (UPDATED FOR ULTRA-FAST VERCEL HOSTING)
        ============ */
-    const BACKEND_URL = "https://vercel.app";
+    const BACKEND_URL = "https://school-website-backend-9is18enaq-nuel-workspace1.vercel.app/";
 
 
     // A. Newsletter Form Submission Handling
