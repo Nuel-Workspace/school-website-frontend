@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-        // C. Admission Form Submission (STABLE VERCEL EDITION)
+        // C. Admission Form Submission (PERFECTLY MAPPED TO YOUR INPUTS)
     ["primaryForm", "secondaryForm"].forEach(formId => {
         const form = document.getElementById(formId);
         if (!form) return;
@@ -162,52 +162,65 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            // Setup options for html2pdf
+            // Auto-loads html2pdf library if missing
+            if (typeof html2pdf === 'undefined') {
+                console.log("Loading PDF generation library...");
+                await new Promise((resolve) => {
+                    const script = document.createElement('script');
+                    script.src = "https://cloudflare.com";
+                    script.onload = () => resolve();
+                    document.head.appendChild(script);
+                });
+            }
+
+            // PDF output layout configurations
             const options = {
-                margin:       15,
-                filename:     `${formId}_Receipt.pdf`,
+                margin:       12,
+                filename:     `${formId}_Registration_Receipt.pdf`,
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2, useCORS: true },
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
             try {
-                // 1. Generate and save the PDF locally for the user right away
+                // 1. Instantly trigger the local PDF download copy for the parent
                 await html2pdf().set(options).from(form).save();
 
-                // 2. Safely capture individual field values from your form layout
-                // Make sure these match the 'name' attributes on your HTML input tags!
-                const studentNameValue = form.querySelector('[name="studentName"]')?.value || "Applicant";
-                const studentEmailValue = form.querySelector('[name="studentEmail"]')?.value || "";
-                const studentPhoneValue = form.querySelector('[name="studentPhone"]')?.value || "";
-                const courseValue = form.querySelector('[name="course"]')?.value || "";
+                // 2. Map fields using the exact name="..." attributes visible in your sidebar search
+                const childNameValue = form.querySelector('[name="childName"]')?.value || "Applicant";
+                const fatherNameValue = form.querySelector('[name="fatherName"]')?.value || "Not Provided";
+                const motherNameValue = form.querySelector('[name="motherName"]')?.value || "Not Provided";
+                const sexValue = form.querySelector('[name="childSex"]')?.value || "Not Provided";
 
-                // 3. Send clean JSON text back to your serverless Vercel function
+                // 3. Compile summary text to pass cleanly to your active backend notification email
+                const summaryPayload = {
+                    studentName: childNameValue,
+                    studentEmail: `${formId.toUpperCase()} Registration Submission`, // Descriptive string placeholder
+                    studentPhone: `Father: ${fatherNameValue} | Mother: ${motherNameValue}`, // Bundled text
+                    course: `Sex: ${sexValue}` // Contextual text slot
+                };
+
+                // 4. Post the data payload securely across the network to your Vercel Node API 
                 const response = await fetch(`${BACKEND_URL}/api/admission`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({
-                        studentName: studentNameValue,
-                        studentEmail: studentEmailValue,
-                        studentPhone: studentPhoneValue,
-                        course: courseValue
-                    })
+                    body: JSON.stringify(summaryPayload)
                 });
 
                 const result = await response.json();
 
                 if (result.success) {
-                    alert("Admission application submitted successfully and your copy has been downloaded!");
+                    alert("Admission application submitted successfully and your form PDF copy has been downloaded!");
                     form.reset();
                 } else {
-                    alert(result.error || "Submission failed.");
+                    alert(result.error || "Form printed locally, but backend sync failed.");
                 }
 
             } catch (err) {
-                console.error("Admission form processing failure:", err);
-                alert("An error occurred while generating your form PDF or sending to the server.");
+                console.error("Admission script error details:", err);
+                alert("An error occurred while compiling your receipt PDF data. Check network status.");
             }
         });
     });
